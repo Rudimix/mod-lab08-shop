@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "задача-tests",
+      "appliesTo": "test/tests.cpp",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "задача-tests",
+      "appliesTo": "test/tests.cpp",
+      "type": "launch"
+    }
+  ]
+}
