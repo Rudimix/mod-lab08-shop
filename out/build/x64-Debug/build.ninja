@@ -233,11 +233,12 @@ build src\list_install_components: phony
 #############################################
 # Order-only phony target for mod-lab08-shop.test
 
-build cmake_object_order_depends_target_mod-lab08-shop.test: phony || test\CMakeFiles\mod-lab08-shop.test.dir
+build cmake_object_order_depends_target_mod-lab08-shop.test: phony || cmake_object_order_depends_target_mod-lab08-shop
 
 build test\CMakeFiles\mod-lab08-shop.test.dir\AllTests.cpp.obj: CXX_COMPILER__mod-lab08-shop.2etest_Debug ..\..\..\test\AllTests.cpp || cmake_object_order_depends_target_mod-lab08-shop.test
   DEFINES = -DTEST_DIR=\"C:/Users/PC/source/repos/Rudimix/mod-lab08-shop/test/test\"
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
+  INCLUDES = -Isrc -I..\..\..\include
   OBJECT_DIR = test\CMakeFiles\mod-lab08-shop.test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\mod-lab08-shop.test.dir
   TARGET_COMPILE_PDB = test\CMakeFiles\mod-lab08-shop.test.dir\
@@ -246,6 +247,7 @@ build test\CMakeFiles\mod-lab08-shop.test.dir\AllTests.cpp.obj: CXX_COMPILER__mo
 build test\CMakeFiles\mod-lab08-shop.test.dir\tests.cpp.obj: CXX_COMPILER__mod-lab08-shop.2etest_Debug ..\..\..\test\tests.cpp || cmake_object_order_depends_target_mod-lab08-shop.test
   DEFINES = -DTEST_DIR=\"C:/Users/PC/source/repos/Rudimix/mod-lab08-shop/test/test\"
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
+  INCLUDES = -Isrc -I..\..\..\include
   OBJECT_DIR = test\CMakeFiles\mod-lab08-shop.test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\mod-lab08-shop.test.dir
   TARGET_COMPILE_PDB = test\CMakeFiles\mod-lab08-shop.test.dir\
@@ -259,10 +261,10 @@ build test\CMakeFiles\mod-lab08-shop.test.dir\tests.cpp.obj: CXX_COMPILER__mod-l
 #############################################
 # Link the executable test\mod-lab08-shop.test.exe
 
-build test\mod-lab08-shop.test.exe: CXX_EXECUTABLE_LINKER__mod-lab08-shop.2etest_Debug test\CMakeFiles\mod-lab08-shop.test.dir\AllTests.cpp.obj test\CMakeFiles\mod-lab08-shop.test.dir\tests.cpp.obj
+build test\mod-lab08-shop.test.exe: CXX_EXECUTABLE_LINKER__mod-lab08-shop.2etest_Debug test\CMakeFiles\mod-lab08-shop.test.dir\AllTests.cpp.obj test\CMakeFiles\mod-lab08-shop.test.dir\tests.cpp.obj | src\mod-lab08-shop.lib || src\mod-lab08-shop.dll
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = mod-lab08-shop_1.lib  mod-lab08-shop_2.lib  mod-lab08-shop_3.lib  gtest.lib  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_LIBRARIES = src\mod-lab08-shop.lib  gtest.lib  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = test\CMakeFiles\mod-lab08-shop.test.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

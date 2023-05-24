@@ -30,14 +30,14 @@ TEST(TestCaseName2, TestName2) {
 	double mu = s.clients_served / s.total_time;
 	double ro = lambda / mu;
 	for (int i = 0; i <= num_checkouts + max_queue_length; i++) {
-		temp = temp + pow(ro, i) / (pow(num_checkouts, st) * fac(z));
+		temp = temp + pow(ro, i) / (pow(num_checkouts, st) * fact(z));
 		if (z < num_checkouts)z++;
 		else
 			st++;
 	}
 
 	double P_0 = 1 / (temp * 10);
-	double P_rej = pow(ro, num_checkouts + max_queue_length) * P_0 / (pow(num_checkouts, max_queue_length) * fac(num_checkouts));
+	double P_rej = pow(ro, num_checkouts + max_queue_length) * P_0 / (pow(num_checkouts, max_queue_length) * fact(num_checkouts));
 	if (P_0 < 1 && P_rej < 1)
 		flag = true;
 

@@ -10,6 +10,11 @@
       "taskLabel": "задача-tests",
       "appliesTo": "test/tests.cpp",
       "type": "launch"
+    },
+    {
+      "taskLabel": "задача-mod-lab08-shop",
+      "appliesTo": "/",
+      "type": "launch"
     }
   ]
 }
