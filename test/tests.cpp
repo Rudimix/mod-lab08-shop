@@ -4,15 +4,14 @@
 #include "task.h"
 
 TEST(TestCaseName1, TestName1) {
-	int num_checkouts = 2;
+	int num_checkouts = 0;
 	double lambda = 0.2;
 	int checkout_time_ms = 10;
 	double mean_num_items = 3;
-	int max_queue_length = 5;
+	int max_queue_length = 7;
 	task s(num_checkouts, lambda, checkout_time_ms, max_queue_length, mean_num_items);
 	s.startSimulation();
-	int sum = s.clients_served + s.rejected_clients;
-	EXPECT_EQ(sum, 100);
+	EXPECT_EQ(s.clients_served, 0);
 }
 
 TEST(TestCaseName2, TestName2) {
@@ -49,32 +48,33 @@ TEST(TestCaseName3, TestName3) {
 	double lambda = 0.2;
 	int checkout_time_ms = 10;
 	double mean_num_items = 3;
+	int max_queue_length = 5;
+	task s(num_checkouts, lambda, checkout_time_ms, max_queue_length, mean_num_items);
+	s.startSimulation();
+	int sum = s.clients_served + s.rejected_clients;
+	EXPECT_EQ(sum, 100);
+}
+TEST(TestCaseName4, TestName4) {
+	int num_checkouts = 2;
+	double lambda = 0.2;
+	int checkout_time_ms = 10;
+	double mean_num_items = 3;
 	int max_queue_length = 100;
 	task s(num_checkouts, lambda, checkout_time_ms, max_queue_length, mean_num_items);
 	s.startSimulation();
 	int n = s.clients_served;
 	EXPECT_EQ(n, 100);
 }
-TEST(TestCaseName4, TestName4) {
+TEST(TestCaseName5, TestName5) {
 	int num_checkouts = 0;
-	double lambda = 0.2;
-	int checkout_time_ms = 10;
-	double mean_num_items = 3;
+	double lambda = 0.1;
+	int checkout_time_ms = 100;
+	double mean_num_items = 7;
 	int max_queue_length = 7;
 	task s(num_checkouts, lambda, checkout_time_ms, max_queue_length, mean_num_items);
 	s.startSimulation();
-	EXPECT_EQ(s.clients_served, 0);
-}
-TEST(TestCaseName5, TestName5) {
-	int num_checkouts = 5;
-	double lambda = 0.1;
-	int checkout_time_ms = 1;
-	double mean_num_items = 1;
-	int max_queue_length = 50;
-	task s(num_checkouts, lambda, checkout_time_ms, max_queue_length, mean_num_items);
-	s.startSimulation();
-
-	EXPECT_EQ(s.rejected_clients, 0);
+	int sum = s.clients_served;
+	EXPECT_EQ(sum, 0);
 }
 TEST(TestCaseName6, TestName6) {
 	int num_checkouts = 2;
@@ -90,13 +90,12 @@ TEST(TestCaseName6, TestName6) {
 	EXPECT_TRUE(flag);
 }
 TEST(TestCaseName7, TestName7) {
-	int num_checkouts = 0;
+	int num_checkouts = 5;
 	double lambda = 0.1;
-	int checkout_time_ms = 100;
-	double mean_num_items = 7;
-	int max_queue_length = 7;
+	int checkout_time_ms = 1;
+	double mean_num_items = 1;
+	int max_queue_length = 50;
 	task s(num_checkouts, lambda, checkout_time_ms, max_queue_length, mean_num_items);
 	s.startSimulation();
-	int sum = s.clients_served;
-	EXPECT_EQ(sum, 0);
+	EXPECT_EQ(s.rejected_clients, 0);
 }

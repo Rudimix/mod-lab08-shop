@@ -23,7 +23,7 @@ using std::normal_distribution;
 using std::ofstream;
 using std::endl;
 
-int fac(int n);
+int fact(int n);
 
 class Client {
  public:

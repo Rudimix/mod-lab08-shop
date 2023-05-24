@@ -15,17 +15,17 @@ int main() {
     double mu = simulation.clients_served / simulation.total_time;
     double ro = lambda / mu;
     for (int i = 0; i <= num_checkouts + max_queue_length; i++) {
-        temp = temp + pow(ro, i) / (pow(num_checkouts, st) * fac(z));
+        temp = temp + pow(ro, i) / (pow(num_checkouts, st) * fact(z));
         if (z < num_checkouts)z++;
         else
             st++;
     }
 
     double P_0 = 1 / (temp * 10);
-    double P_rej = pow(ro, num_checkouts + max_queue_length) * P_0 / (pow(num_checkouts, max_queue_length) * fac(num_checkouts));
+    double P_rej = pow(ro, num_checkouts + max_queue_length) * P_0 / (pow(num_checkouts, max_queue_length) * fact(num_checkouts));
     double Q = 1 - P_rej;
     double A = lambda * Q;
-    double L_q = (pow(ro, num_checkouts + 1) * (1 - pow(ro / num_checkouts, max_queue_length) * (1 + max_queue_length * (1 - ro / num_checkouts))) * P_0) / (num_checkouts * fac(num_checkouts) * pow(1 - ro / num_checkouts, 2));
+    double L_q = (pow(ro, num_checkouts + 1) * (1 - pow(ro / num_checkouts, max_queue_length) * (1 + max_queue_length * (1 - ro / num_checkouts))) * P_0) / (num_checkouts * fact(num_checkouts) * pow(1 - ro / num_checkouts, 2));
     double L_srv = A / mu;
     double t = L_q / lambda + Q / mu;
     double t_q = L_q / lambda;
